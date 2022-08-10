@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
-const apiUrl = 'https://cfmyflix.herokuapp.com//';
+const apiUrl = 'https://cfmyflix.herokuapp.com/';
 
 const token = localStorage.getItem('token');
 // Get username from localStorage for URLs
