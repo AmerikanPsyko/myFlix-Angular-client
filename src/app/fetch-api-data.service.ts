@@ -58,6 +58,27 @@ export class FetchApiDataService {
         catchError(this.handleError)
       );
   }
+
+    /**
+   * calls API endpoint to get list of favorite movies of this user
+   * @returns list of the user's favorite movies in JSON format
+   */
+     getFavMovies(): Observable<any> {
+      // Get Authorization token stored in local storage
+      const token = localStorage.getItem('token');
+      // Get Username stored in local storage
+      const username = localStorage.getItem('user');
+      return this.http
+        .get(apiUrl + `users/${username}/movies`, {
+          headers: new HttpHeaders({
+            Authorization: 'Bearer ' + token,
+          })
+        })
+        .pipe(
+          map(this.extractResponseData),
+          catchError(this.handleError)
+        );
+    }
   
 
 //Get a single movie 
@@ -110,13 +131,17 @@ export class FetchApiDataService {
       );
   }
 
-//Get user
-  getUser(user: any): Observable<any> {
+  /**
+   * calls API endpoint to get data on a single user
+   * @returns JSON object holding data about the requested user
+   */
+   getUser(): Observable<any> {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     // Get Username stored in local storage
+    const username = localStorage.getItem('user');
     return this.http
-      .get(apiUrl + 'users/' + username, {
+      .get(apiUrl + `users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -130,7 +155,7 @@ export class FetchApiDataService {
   
   
 //Add a favorite movie
-  addFavoriteMovie( Id: any): Observable<any> {
+  addFavMovie( Id: any): Observable<any> {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     // Get Username stored in local storage
@@ -148,7 +173,7 @@ export class FetchApiDataService {
   }
 
 //Remove a favorite movie
-  removeFavoriteMovie(Id: any): Observable<any> {
+  removeFavMovie(Id: any): Observable<any> {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     // Get Username stored in local storage

@@ -25,7 +25,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMovies();
-    // this.getFavoriteMovies();
+    this.getFavoriteMovies();
   }
 
   /**
@@ -46,13 +46,13 @@ export class MovieCardComponent implements OnInit {
    * @returns array holding ids of user's favorite movies
    * @function getFavoriteMovies
    */
-  // getFavoriteMovies(): void {
-  //   this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-  //     this.favoriteMovies = resp;
-  //     console.log(this.favoriteMovies);
-  //     return this.favoriteMovies;
-  //   });
-  // }
+  getFavoriteMovies(): void {
+    this.fetchApiData.getFavMovies().subscribe((resp: any) => {
+      this.favoriteMovies = resp;
+      console.log(this.favoriteMovies);
+      return this.favoriteMovies;
+    });
+  }
 
   /**
    * checks if a movie is included in the user's list of favorite movies
@@ -100,8 +100,8 @@ export class MovieCardComponent implements OnInit {
 
   /**
    * opens the user synopsis dialog from SynopsisComponent to displaying details
-    @param title
-    @param description
+   * @param title
+   * @param description
    */
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisComponent, {
@@ -122,7 +122,7 @@ export class MovieCardComponent implements OnInit {
    */
   addToFavoriteMovies(id: string): void {
     console.log(id);
-    this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
+    this.fetchApiData.addFavMovie(id).subscribe((result) => {
       console.log(result);
       this.ngOnInit();
     })
@@ -135,7 +135,7 @@ export class MovieCardComponent implements OnInit {
    */
   removeFromFavoriteMovies(id: string): void {
     console.log(id);
-    this.fetchApiData.removeFavoriteMovie(id).subscribe((result) => {
+    this.fetchApiData.removeFavMovie(id).subscribe((result) => {
       console.log(result);
       this.ngOnInit();
     })
