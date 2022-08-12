@@ -54,14 +54,15 @@ export class MovieCardComponent implements OnInit {
       });
     }
 
-  /**
-   * checks if a movie is included in the user's list of favorite movies
-   * @param id 
-   * @returns true, if the movie is a favorite move, else false
+    /**
+   * function to check if movie is or is not in favorites list
+   * in order to display outline or filled in fav heart
+   * @param id
+   * @returns true or false
    */
-  isFav(id: string): boolean {
-    return this.favoriteMovies.includes(id)
-  }
+     isFav(id: string): boolean {
+      return this.favoriteMovies.includes(id);
+    }
 
   /**
   * opens the user genre dialog from GenreComponent to displaying details
