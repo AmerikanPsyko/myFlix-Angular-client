@@ -141,26 +141,26 @@ export class FetchApiDataService {
       );
   }
 
-  /**
+    /**
    * calls API endpoint to get list of favorite movies of this user
    * @returns list of the user's favorite movies in JSON format
    */
-  getFavoriteMovies(): Observable<any> {
-    // Get Authorization token stored in local storage
-    const token = localStorage.getItem('token');
-    // Get Username stored in local storage
-    const username = localStorage.getItem('user');
-    return this.http
-      .get(apiUrl + `users/${username}/movies`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
+     getFavoriteMovies(): Observable<any> {
+      // Get Authorization token stored in local storage
+      const token = localStorage.getItem('token');
+      // Get Username stored in local storage
+      const username = localStorage.getItem('user');
+      return this.http
+        .get(apiUrl + `users/${username}/movies`, {
+          headers: new HttpHeaders({
+            Authorization: 'Bearer ' + token,
+          })
         })
-      })
-      .pipe(
-        map(this.extractResponseData),
-        catchError(this.handleError)
-      );
-  }
+        .pipe(
+          map(this.extractResponseData),
+          catchError(this.handleError)
+        );
+    }
 
   /**
    * calls API endpoint to add a movie to the user's list of favorite movies
