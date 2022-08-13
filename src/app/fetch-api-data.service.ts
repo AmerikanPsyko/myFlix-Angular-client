@@ -151,7 +151,7 @@ export class FetchApiDataService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .get(apiUrl + `users/${username}/movies`, {
+      .get(apiUrl + `Users/${username}/movies`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
