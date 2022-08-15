@@ -98,9 +98,9 @@ export class MovieCardComponent implements OnInit {
    * function to check if movie is or is not in favorites list
    * in order to display outline or filled in fav heart
    * @param id
-   * @returns true or false
+   * @returns true or false 
    */
-    isFav(id: string): boolean {
+    isFavorite(id: string): boolean {
       return this.favoriteMovies.includes(id);
     };
 
