@@ -51,18 +51,13 @@ export class MovieCardComponent implements OnInit {
         this.favoriteMovies = resp;
         console.log(this.favoriteMovies);
         return this.favoriteMovies;
+        
       });
+
+      
     }
 
-    /**
-   * function to check if movie is or is not in favorites list
-   * in order to display outline or filled in fav heart
-   * @param id
-   * @returns true or false
-   */
-     isFav(id: string): boolean {
-      return this.favoriteMovies.includes(id);
-    }
+   
 
   /**
   * opens the user genre dialog from GenreComponent to displaying details
@@ -98,6 +93,16 @@ export class MovieCardComponent implements OnInit {
     });
 
   }
+
+   /**
+   * function to check if movie is or is not in favorites list
+   * in order to display outline or filled in fav heart
+   * @param id
+   * @returns true or false
+   */
+    isFav(id: string): boolean {
+      return this.favoriteMovies.includes(id);
+    };
 
   /**
    * opens the user synopsis dialog from SynopsisComponent to displaying details
