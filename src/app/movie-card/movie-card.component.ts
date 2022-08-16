@@ -41,23 +41,27 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-   /**
+  /**
    * Gets favorite movies from api call and sets the favorite movies variable to return JSON file
    * @returns array holding ids of user's favorite movies
    * @function getFavoriteMovies
    */
-    getFavoriteMovies(): void {
-      this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
-        this.favoriteMovies = resp;
-        console.log(this.favoriteMovies);
-        return this.favoriteMovies;
-        
-      });
+  getFavoriteMovies(): void {
+    this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
+      this.favoriteMovies = resp;
+      console.log(this.favoriteMovies);
+      return this.favoriteMovies;
+    });
+  }
 
-      
-    }
-
-   
+  /**
+   * checks if a movie is included in the user's list of favorite movies
+   * @param id 
+   * @returns true, if the movie is a favorite move, else false
+   */
+  isFav(id: string): boolean {
+    return this.favoriteMovies.includes(id)
+  }
 
   /**
   * opens the user genre dialog from GenreComponent to displaying details
@@ -94,16 +98,6 @@ export class MovieCardComponent implements OnInit {
 
   }
 
-   /**
-   * function to check if movie is or is not in favorites list
-   * in order to display outline or filled in fav heart
-   * @param id
-   * @returns true or false 
-   */
-    isFavorite(id: string): boolean {
-      return this.favoriteMovies.includes(id);
-    };
-
   /**
    * opens the user synopsis dialog from SynopsisComponent to displaying details
    * @param title
@@ -121,18 +115,18 @@ export class MovieCardComponent implements OnInit {
 
   }
 
-    /**
+  /**
    * adds a movie to the list of favorite movies via an API call
    * @param id 
    * @function addFavoriteMovie
    */
-     addToFavoriteMovies(id: string): void {
-      console.log(id);
-      this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
-        console.log(result);
-        this.ngOnInit();
-      })
-    }
+  addToFavoriteMovies(id: string): void {
+    console.log(id);
+    this.fetchApiData.addFavoriteMovie(id).subscribe((result) => {
+      console.log(result);
+      this.ngOnInit();
+    })
+  }
 
   /**
    * removes a movie from the list of favorite movies via an API call
