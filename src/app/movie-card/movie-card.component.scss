@@ -1,5 +1,5 @@
 
-$cardColor: #fff;
+
 $textColor: #343a40;
 
 
@@ -9,7 +9,7 @@ $textColor: #343a40;
     flex-wrap: wrap;
     justify-content: center;
     padding: 50px 0;
-    background: url(./shapes.jpg);
+    background: url(./heart.jpg);
     
 }
 
@@ -54,4 +54,10 @@ img {
     right: 5px;
     top: 5px;
     
+    
+}
+
+.isfav-btn {
+    background-color: red;
+    opacity: 75%;
 }

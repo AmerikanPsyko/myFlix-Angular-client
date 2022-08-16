@@ -20,10 +20,10 @@
         Synopsis
       </button>
       <!-- Render add to or remove from favorites button depending on isFav -->
-      <button mat-button *ngIf="!isFav(movie._id)" (click)="addToFavoriteMovies(movie._id)" color="primary">
+      <button  mat-button *ngIf="!isFav(movie._id)" (click)="addToFavoriteMovies(movie._id)">
         <mat-icon>favorite_border</mat-icon>
       </button>
-      <button mat-button *ngIf="isFav(movie._id)" (click)="removeFromFavoriteMovies(movie._id)" color="primary">
+      <button class="isfav-btn" mat-button *ngIf="isFav(movie._id)" (click)="removeFromFavoriteMovies(movie._id)">
         <mat-icon>favorite</mat-icon>
       </button>
     </mat-card-actions>
