@@ -1,6 +1,6 @@
 # Angular-CF-myFlix
 
-#Key Features
+# Key Features
 
 - Application provides a registration, and login welcome page
 - Logging in uses Authentication 
